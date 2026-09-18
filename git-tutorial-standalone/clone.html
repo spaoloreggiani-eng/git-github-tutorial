@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clonare da GitHub - Guida Completa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git & GitHub</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Pubblicare su GitHub</a></li>
+                    <li><a href="clone.html">Clonare da GitHub</a></li>
+                    <li><a href="#prerequisites">Prerequisiti</a></li>
+                    <li><a href="#clone-steps">Clonare</a></li>
+                    <li><a href="#setup-local">Setup Locale</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Porta Questo Progetto in Locale</h1>
+                <p>Impara a clonare un repository da GitHub e configurarlo sul tuo computer</p>
+                <div class="hero-buttons">
+                    <a href="#clone-steps" class="btn btn-primary">Inizia Subito</a>
+                    <a href="index.html" class="btn btn-secondary">Pubblicare su GitHub</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-download"></i>
+            </div>
+        </section>
+
+        <section id="introduction" class="section">
+            <div class="container">
+                <h2>Cos'è il Cloning?</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-clone"></i>
+                        </div>
+                        <h3>Git Clone</h3>
+                        <p>Clonare significa scaricare una copia completa di un repository GitHub sul tuo computer, inclusa tutta la storia dei commit.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Lavoro Locale</h3>
+                        <p>Una volta clonato, puoi modificare il codice, testarlo localmente e poi sincronizzare le modifiche con GitHub.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Collaborazione</h3>
+                        <p>Il cloning è il primo passo per collaborare su progetti open source o lavorare su progetti di team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prerequisites" class="section section-dark">
+            <div class="container">
+                <h2>Prerequisiti</h2>
+                <div class="steps-container">
+                    <div class="step" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Git Installato</h3>
+                            <p>Assicurati di avere Git installato sul tuo computer.</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="git --version">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>git --version</code></pre>
+                            </div>
+                            <p>Se non è installato, scaricalo da <a href="https://git-scm.com" target="_blank">git-scm.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>URL del Repository</h3>
+                            <p>Avrai bisogno dell'URL del repository GitHub da clonare.</p>
+                            <p>Per questo progetto tutorial, l'URL sarà simile a:</p>
+                            <div class="code-block">
+                                <pre><code>https://github.com/USERNAME/git-github-tutorial.git</code></pre>
+                            </div>
+                            <p>Sostituisci <code>USERNAME</code> con l'username di chi ha pubblicato il progetto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clone-steps" class="section">
+            <div class="container">
+                <h2>Clonare il Repository da GitHub</h2>
+                <div class="steps-container">
+                    <div class="step" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Trovare l'URL del Repository</h3>
+                            <p>Vai sulla pagina GitHub del progetto che vuoi clonare.</p>
+                            <ul>
+                                <li>Apri il repository su GitHub</li>
+                                <li>Clicca sul pulsante verde <strong>"Code"</strong></li>
+                                <li>Copia l'URL HTTPS (es: <code>https://github.com/username/git-github-tutorial.git</code>)</li>
+                            </ul>
+                            <p><strong>Nota:</strong> Puoi anche usare SSH se hai configurato le chiavi SSH.</p>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Scegliere la Cartella di Destinazione</h3>
+                            <p>Apri il terminale e naviga nella cartella dove vuoi salvare il progetto.</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="cd ~/Documenti/Progetti">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>cd ~/Documenti/Progetti</code></pre>
+                            </div>
+                            <p>Oppure su Windows:</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="cd C:\Users\TuoNome\Documenti\Progetti">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>cd C:\Users\TuoNome\Documenti\Progetti</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Clonare il Repository</h3>
+                            <p>Usa il comando <code>git clone</code> seguito dall'URL del repository.</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="git clone https://github.com/USERNAME/git-github-tutorial.git">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>git clone https://github.com/USERNAME/git-github-tutorial.git</code></pre>
+                            </div>
+                            <p><strong>Importante:</strong> Sostituisci <code>USERNAME</code> con l'username GitHub effettivo!</p>
+                            <p>Git creerà una nuova cartella chiamata <code>git-github-tutorial</code> con tutti i file del progetto.</p>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Verificare il Clone</h3>
+                            <p>Controlla che il repository sia stato clonato correttamente.</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="ls -la git-github-tutorial">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>ls -la git-github-tutorial</code></pre>
+                            </div>
+                            <p>Su Windows usa:</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="dir git-github-tutorial">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>dir git-github-tutorial</code></pre>
+                            </div>
+                            <p>Dovresti vedere tutti i file del progetto: index.html, clone.html, styles.css, script.js, README.md</p>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Navigare nella Cartella del Progetto</h3>
+                            <p>Entra nella cartella del progetto clonato.</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="cd git-github-tutorial">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>cd git-github-tutorial</code></pre>
+                            </div>
+                            <p>Ora sei nella cartella del progetto e puoi iniziare a lavorarci!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="setup-local" class="section section-dark">
+            <div class="container">
+                <h2>Aprire il Progetto in Locale</h2>
+                <div class="steps-container">
+                    <div class="step" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Aprire il Sito nel Browser</h3>
+                            <p>Questo è un sito HTML statico, quindi non richiede installazioni!</p>
+                            <p>Puoi aprirlo in due modi:</p>
+                            <ul>
+                                <li><strong>Metodo 1:</strong> Fai doppio clic sul file <code>index.html</code></li>
+                                <li><strong>Metodo 2:</strong> Trascina il file <code>index.html</code> nel browser</li>
+                            </ul>
+                            <p><strong>Congratulazioni! 🎉</strong> Hai clonato e aperto con successo il progetto in locale!</p>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Esplorare il Codice</h3>
+                            <p>Ora puoi esplorare e modificare il codice del progetto:</p>
+                            <ul>
+                                <li><code>index.html</code> - Pagina principale</li>
+                                <li><code>clone.html</code> - Questa pagina</li>
+                                <li><code>styles.css</code> - Stili CSS</li>
+                                <li><code>script.js</code> - JavaScript interattivo</li>
+                                <li><code>README.md</code> - Documentazione del progetto</li>
+                            </ul>
+                            <p>Apri i file con il tuo editor preferito (VS Code, Notepad++, ecc.)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="git-info" class="section">
+            <div class="container">
+                <h2>Informazioni Git del Repository Clonato</h2>
+                <div class="commands-reference">
+                    <h3>Comandi Utili</h3>
+                    <div class="commands-grid">
+                        <div class="command-card">
+                            <h4>git remote -v</h4>
+                            <p>Mostra l'URL del repository remoto</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="git remote -v">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>git remote -v</code></pre>
+                            </div>
+                        </div>
+                        <div class="command-card">
+                            <h4>git status</h4>
+                            <p>Verifica lo stato dei file</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="git status">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>git status</code></pre>
+                            </div>
+                        </div>
+                        <div class="command-card">
+                            <h4>git log</h4>
+                            <p>Visualizza la storia dei commit</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="git log --oneline">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>git log --oneline</code></pre>
+                            </div>
+                        </div>
+                        <div class="command-card">
+                            <h4>git pull</h4>
+                            <p>Scarica gli aggiornamenti da GitHub</p>
+                            <div class="code-block">
+                                <button class="copy-btn" data-code="git pull origin main">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <pre><code>git pull origin main</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="modifications" class="section section-dark">
+            <div class="container">
+                <h2>Modificare e Sincronizzare</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #666;">Se hai i permessi, puoi modificare il progetto e inviare le modifiche a GitHub</p>
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3>1. Modifica</h3>
+                        <p>Modifica i file del progetto</p>
+                    </div>
+                    <div class="workflow-arrow">></div>
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <h3>2. git add</h3>
+                        <p>Aggiungi le modifiche</p>
+                    </div>
+                    <div class="workflow-arrow">></div>
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-save"></i>
+                        </div>
+                        <h3>3. git commit</h3>
+                        <p>Salva le modifiche</p>
+                    </div>
+                    <div class="workflow-arrow">></div>
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>4. git push</h3>
+                        <p>Invia a GitHub</p>
+                    </div>
+                </div>
+
+                <div class="steps-container" style="margin-top: 60px;">
+                    <div class="step">
+                        <div class="step-number">!</div>
+                        <div class="step-content">
+                            <h3>Nota sui Permessi</h3>
+                            <p>Se hai clonato il repository di qualcun altro, non avrai i permessi di push.</p>
+                            <p>Per contribuire a progetti altrui:</p>
+                            <ul>
+                                <li><strong>Fork</strong> il repository sul tuo account GitHub</li>
+                                <li>Clona il tuo fork</li>
+                                <li>Fai le modifiche e push sul tuo fork</li>
+                                <li>Crea una <strong>Pull Request</strong> per proporre le modifiche</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="section">
+            <div class="container">
+                <h2>Risoluzione Problemi</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Errore: Git non trovato</h3>
+                        <p>Installa Git da <a href="https://git-scm.com" target="_blank">git-scm.com</a> e riavvia il terminale.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Repository non trovato</h3>
+                        <p>Verifica che l'URL del repository sia corretto e che il repository sia pubblico.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>File non si aprono</h3>
+                        <p>Assicurati di aprire index.html con un browser web moderno (Chrome, Firefox, Edge).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="next-steps" class="section section-dark">
+            <div class="container">
+                <h2>Prossimi Passi</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <h3>Pubblicare su GitHub</h3>
+                        <p>Impara a creare e pubblicare il tuo repository</p>
+                        <a href="index.html" class="resource-link">Vai alla Guida <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3>Lavorare con i Branch</h3>
+                        <p>Scopri come usare i branch per organizzare il lavoro</p>
+                        <a href="https://git-scm.com/book/it/v2/Git-Branching-Basi-di-Ramificazione-e-Fusione" target="_blank" class="resource-link">Documentazione <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Collaborare con Pull Request</h3>
+                        <p>Contribuisci a progetti open source</p>
+                        <a href="https://docs.github.com/it/pull-requests" target="_blank" class="resource-link">GitHub Docs <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Pro Git Book</h3>
+                        <p>Guida completa e gratuita su Git</p>
+                        <a href="https://git-scm.com/book/it/v2" target="_blank" class="resource-link">Leggi Online <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Git & GitHub Tutorial</h4>
+                    <p>Una guida completa per iniziare con Git e GitHub</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Link Rapidi</h4>
+                    <ul>
+                        <li><a href="index.html">Pubblicare su GitHub</a></li>
+                        <li><a href="clone.html">Clonare da GitHub</a></li>
+                        <li><a href="#clone-steps">Come Clonare</a></li>
+                        <li><a href="#setup-local">Setup Locale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Tecnologie</h4>
+                    <p>Creato con HTML, CSS e JavaScript</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Git & GitHub Tutorial. Creato con <i class="fas fa-heart"></i> per la community degli sviluppatori.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
